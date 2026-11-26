@@ -19,23 +19,18 @@ Esta é a base inicial para o trabalho em grupo (aproximadamente 30% do escopo, 
 
 ## Executar no Ubuntu ou Windows
 
-É necessário ter Flutter instalado. O ZIP contém o código-fonte e a configuração de dependências, mas não as pastas de plataforma geradas pelo SDK. Para preparar o projeto sem sobrescrever o código fornecido, crie um projeto novo e copie os arquivos:
+É necessário ter o SDK Flutter instalado. As pastas Android, iOS, Web, Linux, macOS e Windows estão presentes no repositório, adaptadas dos modelos oficiais do Flutter 3.38.5. Não é necessário criar outro projeto.
 
 ```bash
-flutter create --platforms=android,ios,web treino_em_dia
-```
-
-Em seguida, copie `lib/`, `test/`, `pubspec.yaml` e `README.md` deste ZIP para a pasta `treino_em_dia`, substituindo os arquivos de mesmo nome (inclusive o teste padrão). No Ubuntu, também é possível executar a partir da pasta extraída `treino_em_dia_etapa1`:
-
-```bash
-flutter create --platforms=android,ios,web --project-name treino_em_dia .
+git clone https://github.com/Leosx7/Trabalho_final_pdm.git
+cd Trabalho_final_pdm
 flutter pub get
 flutter analyze
 flutter test
 flutter run -d web-server --web-hostname=127.0.0.1 --web-port=9100
 ```
 
-Não use `--overwrite`. Se preferir, utilize a primeira opção, com projeto novo e cópia dos arquivos, para preservar a base. No navegador, abra `http://localhost:9100` depois que o servidor informar que está pronto. Se a porta estiver ocupada, escolha outra. Para Android, consulte `flutter devices` e execute `flutter run -d ID_DO_DISPOSITIVO`. A compilação para iOS exige macOS e Xcode.
+Abra `http://localhost:9100` após iniciar o servidor. Se a porta estiver ocupada, escolha outra. Para Android, consulte `flutter devices` e execute `flutter run -d ID_DO_DISPOSITIVO`. Android precisa do SDK Android e JDK compatíveis. iOS/macOS requerem macOS e Xcode; Windows e Linux requerem as ferramentas de compilação de cada plataforma. O SDK prepara os arquivos locais e gerados, como configurações de plugins e Gradle wrapper. O identificador provisório é `com.example.treino_em_dia` no Android/Linux e `com.example.treinoEmDia` no iOS/macOS; alinhar com o Firebase antes da integração. O `pubspec.lock` será gerado por `flutter pub get` e deve ser versionado pela equipe.
 
 No app, toque em **Visualizar protótipo sem login** para navegar pela Home. Use apenas dados fictícios para testar os formulários.
 
